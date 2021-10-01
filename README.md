@@ -6,6 +6,8 @@ This file will outline all of the requirements each collaborator should follow i
 2. [Setting Up Git (Command Line)](#cmd_install)
 3. [Setting up GitHub Desktop](#desktop-install)
 4. [Code Standards](#coding_practices)
+    1. [Comments](#comments)
+    2. [Classes](#classes)
 5. [GitHub Standards](#github_practices)
 
 ## Principle of GitHub and Standard Workflow<a name = "workflow"/>
