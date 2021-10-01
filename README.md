@@ -18,7 +18,180 @@ Hello World
 Hello World
 
 ## Coding Standards<a name = "coding_practices" />
-Hello World
+Since this code will be shared between members, rewritten, and moderated by team leaders. All code that is pushed is expected to follow each guideline presented. Code that does not will not be merged into the main branch.
+### Comments
+Comments should be concise, easy to read, and explanatory. The expectation is comments should match a level where the reader knows progammming and basic/common concepts, but does not know the specifics of the code being commented. Nearly every line/concept should be commented. Just commenting at the top of functions/classes is not enough.
+
+Here are the [required rules for commenting](https://stackoverflow.blog/2021/07/05/best-practices-for-writing-code-comments/) (click link for more details on each one):
+1. Comments should not duplicate the code
+2. Good comments do not excuse unclear code
+3. If you can't write a clear comment, there may be a problem with the code
+4. Comments should dispel confusion, not cause it
+5. Explain unidiomatic code in comments
+6. Provide links to the original source of copied code
+7. Include links to external references where they will be most helpful
+8. Add comments when fixing bugs
+9. Use comments to mark incomplete implementations
+
+For more in depth and language specific examples, click for the full [Python](https://developer.lsst.io/python/numpydoc.html) and [C++](https://developer.lsst.io/cpp/api-docs.html#documentation-must-be-delimited-in-javadoc-style) commenting guidelines.
+
+### Functions
+Here is an example of a well commented function. All functions in pushed code should look like this and follow very similar if not exact formatting. 
+<table style='table-layout:fixed'>
+<tr>
+<th>Python</th>
+<th>C++</th>
+</tr>
+<tr>
+<td>
+
+```python
+def my_function(p1, p2, p3):
+  """my_function does blah blah blah
+    Parameters:
+      p1 (type): Description of p1
+      p2 (type): Description of p2
+      p3 (type): Description of p3
+    Returns:
+      Describe what it will return. Omit if nothing
+  """
+  
+  #Code for the function goes here
+```
+</td>
+<td>
+
+```C++
+  /**
+   * Description of function
+   *
+   * @param p1 Description of p1
+   * @param p1 Description of p2
+   * @param p3 Description of p3
+   * @return Describe what to return. If nothing, remove this line
+   */
+  int my_function(int p1, int p2, int p3)
+  {
+    //Code for the function goes here
+  }
+```
+</td>
+</tr>
+</table>
+
+For classes, the structure is similar. Please follow these guidlines when coding classes.
+<table style='table-layout:fixed'>
+<tr>
+<th>Python</th>
+<th>C++</th>
+</tr>
+<tr>
+<td>
+
+```python
+class Person:
+    """
+    A class to represent a person.
+
+    ...
+
+    Attributes
+    ----------
+    name : str
+        first name of the person
+    surname : str
+        family name of the person
+    age : int
+        age of the person
+
+    Methods
+    -------
+    info(additional=""):
+        Prints the person's name and age.
+    """
+  
+  #Code for the class goes here
+```
+</td>
+<td>
+
+```C++
+/**
+ * Implementation of a trace facility for LSST
+ *
+ * Tracing is controlled on a per "component" basis, where a "component" is a
+ * name of the form aaa.bbb.ccc where aaa is the Most significant part; for
+ * example, the utilities library might be called "utils", the doubly-linked
+ * list "utils.dlist", and the code to destroy a list "utils.dlist.del"
+ *
+ */
+class TraceImpl
+{
+    public:
+        ...
+}
+```
+</td>
+</tr>
+</table>
+
+### Classes
+
+All classes, depending on the language, should have a few basic functions. The required functions for all languages are as follows:
+* Default constructor (and destructor if necessary)
+* String methods to allow for easy printing/debugging
+
+**Python**
+All classes should have as many "magic methods" as possible (https://rszalski.github.io/magicmethods/)
+The ones required for classes are the __str__ and __repr__. Both methods are shown in the code example below, and the key reason it to make debugging easier as it prints out a readable format for your class. Here are good examples for a class Person that has a name and age attribute (although comments are omitted here for the sake of brevity, these should be commented):
+<table style='table-layout:fixed'>
+<tr>
+<th>__repr__</th>
+<th>__str__</th>
+</tr>
+<tr>
+<td>
+
+```python
+  def __repr__():
+    return "Person(" + str(name) + ", " + str(age) + ")"
+```
+</td>
+<td>
+
+```Python
+  def __str__():
+    return "Name: " + str(name) + ", Age: " + str(age) + "\n"
+```
+</td>
+</tr>
+</table>
+
+Note the main differences between the __str__ function and the __repr__ function. The str function is supposed to be human readable. This should print out all of the variable states that are deemed relevant in order to get an overview of the current state of that particular object. The __repr__, on the other hand, should be a short string that indicates its class, and as shown above, maybe one or two defining features shown in the parenthesis. This is not neccesary though, but for small classes having that information may deem helpful.
+
+**C++**
+C++ classes should provide an insertion operator as well as a to_string() method. Examples for a class Person, which has a name and age, are shown below:
+
+<table style='table-layout:fixed'>
+<tr>
+<th>string()</th>
+<th>to_string</th>
+</tr>
+<tr>
+<td>
+
+```C++
+  
+```
+</td>
+<td>
+
+```C++
+  
+```
+</td>
+</tr>
+</table>
 
 ## GitHub Standards<a name = "github_practices" />
 Hello World
