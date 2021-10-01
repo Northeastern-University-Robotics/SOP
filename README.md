@@ -35,7 +35,7 @@ Here are the [required rules for commenting](https://stackoverflow.blog/2021/07/
 
 For more in depth and language specific examples, click for the full [Python](https://developer.lsst.io/python/numpydoc.html) and [C++](https://developer.lsst.io/cpp/api-docs.html#documentation-must-be-delimited-in-javadoc-style) commenting guidelines.
 
-### Functions
+### Comments for classes and functions
 Here is an example of a well commented function. All functions in pushed code should look like this and follow very similar if not exact formatting. 
 <table style='table-layout:fixed'>
 <tr>
@@ -141,7 +141,8 @@ All classes, depending on the language, should have a few basic functions. The r
 * Default constructor (and destructor if necessary)
 * String methods to allow for easy printing/debugging
 
-**Python**
+#### Python
+
 All classes should have as many "magic methods" as possible (https://rszalski.github.io/magicmethods/)
 The ones required for classes are the __str__ and __repr__. Both methods are shown in the code example below, and the key reason it to make debugging easier as it prints out a readable format for your class. Here are good examples for a class Person that has a name and age attribute (although comments are omitted here for the sake of brevity, these should be commented):
 <table style='table-layout:fixed'>
@@ -169,7 +170,8 @@ The ones required for classes are the __str__ and __repr__. Both methods are sho
 
 Note the main differences between the __str__ function and the __repr__ function. The str function is supposed to be human readable. This should print out all of the variable states that are deemed relevant in order to get an overview of the current state of that particular object. The __repr__, on the other hand, should be a short string that indicates its class, and as shown above, maybe one or two defining features shown in the parenthesis. This is not neccesary though, but for small classes having that information may deem helpful.
 
-**C++**
+#### C++
+
 C++ classes should provide an insertion operator as well as a to_string() method. Examples for a class Person, which has a name and age, are shown below:
 
 <table style='table-layout:fixed'>
