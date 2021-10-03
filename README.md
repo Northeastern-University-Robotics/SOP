@@ -4,7 +4,7 @@ This file will outline all of the requirements each collaborator should follow i
 ## Table of contents
 1. [Principle of GitHub and Standard Workflow](#workflow)
 2. [Setting Up Git (Command Line)](#cmd_install)
-3. [Setting up GitHub Desktop](#desktop-install)
+3. [Setting up GitHub Desktop (Recommended)](#desktop-install)
     1. [Cloning a repository](#desktop-cloning)
     2. [Commiting/Pushing/Merging](#desktop-pushing)
 4. [Code Standards](#coding_practices)
@@ -12,6 +12,8 @@ This file will outline all of the requirements each collaborator should follow i
     2. [Classes](#classes)
     3. [Naming Conventions](#naming)
 5. [GitHub Standards](#github_practices)
+    1. [Naming and Descriptions](#github-naming)
+    2. [Pushing Code](github_pushing)
 
 ## Principle of GitHub and Standard Workflow<a name = "workflow"/>
 GitHub is one of (if not the) most popular code sharing platform in the world. It allows sharing and collaboration of code in an extremely easy way. For the Robotics club, this will allow multiple people to work on code at once which will make it extremely easy to develop in parallel.
@@ -301,7 +303,7 @@ The name, although auto-filled, should be changed to describe exactly what task 
     
 The description is where you should go in depth about exactly what was changed. Nearly every change should be explained so that the admin that will review your code has a general idea of what is going on. It should also be noted if there are parts missing or some special circuimstances that would make merging difficult.
     
-### Pushing code<a name = "pushing code" />
+### Pushing Code<a name = "github_pushing" />
 By default, code cannot be pushed to the main branch. A branch should be made with your first and last name that will be the branch you exclusively use. (ex: Bob-Smith).
     
 Code that is being pushed should also follow all conventions as described inside this document. Even if something is not explicitly said here, code should be as neat and organized as possible. Code should also be complete. Files with unimplemented features should be avoided. Since it may sometimes be necessary to share code that is not yet fully implmented, it should be made clear in the code (through comments and raising errors) that that section is not fully implemented. 
