@@ -8,6 +8,7 @@ This file will outline all of the requirements each collaborator should follow i
 4. [Code Standards](#coding_practices)
     1. [Comments](#comments)
     2. [Classes](#classes)
+    3. [Naming Conventions](#naming)
 5. [GitHub Standards](#github_practices)
 
 ## Principle of GitHub and Standard Workflow<a name = "workflow"/>
@@ -16,12 +17,15 @@ Hello World
 ## Setting Up Git (Command Line)<a name="cmd_install"/>
 Hello World
 
-## Setting Up GitHub Desktop<a name="desktop-install"/>
-Hello World
+## Setting Up GitHub Desktop (Recomended)<a name="desktop-install"/>
+This is how to set up and use GitHub to 
 
 ## Coding Standards<a name = "coding_practices" />
 Since this code will be shared between members, rewritten, and moderated by team leaders. All code that is pushed is expected to follow each guideline presented. Code that does not will not be merged into the main branch.
-### Comments
+
+(Full documentation for conventions for [Python](https://www.python.org/dev/peps/pep-0008/) and [C++](https://google.github.io/styleguide/cppguide.html). Note, mostly everything here and in these are not all exactly required, there is some flexibility. But the goal is to have all code in our repositories being cohesive and understandable)
+
+### Comments<a name = "comments" />
 Comments should be concise, easy to read, and explanatory. The expectation is comments should match a level where the reader knows progammming and basic/common concepts, but does not know the specifics of the code being commented. Nearly every line/concept should be commented. Just commenting at the top of functions/classes is not enough.
 
 Here are the [required rules for commenting](https://stackoverflow.blog/2021/07/05/best-practices-for-writing-code-comments/) (click link for more details on each one):
@@ -137,7 +141,7 @@ class TraceImpl
 </tr>
 </table>
 
-### Classes
+### Classes<a name = "classes" />
 
 All classes, depending on the language, should have a few basic functions. The required functions for all languages are as follows:
 * Default constructor (and destructor if necessary)
@@ -174,27 +178,81 @@ Note the main differences between the __str__ function and the __repr__ function
 
 #### C++
 
+C++ classes that are complicated and lengthy should be defined using a header file as well as a cpp file, using #ifndef statements to avoid errors. Smaller classes can skip the header file, but classes must be in their own C++ file along with their operator methods and any other helper methods directly related to the base implementation of the class.
+
 C++ classes should provide an insertion operator as well as a to_string() method. Examples for a class Person, which has a name and age, are shown below:
 
 <table style='table-layout:fixed'>
 <tr>
-<th>string()</th>
+<th>Insertion Operator</th>
 <th>to_string</th>
 </tr>
 <tr>
 <td>
 
 ```C++
-  
+    //Note, this method is NOT inside the class, it is defined outside. (should be declared in .h, implemented in .cpp)
+    std::ostream& operator <<(std::ostream& ours, ClassName name)
+    {
+        return outs << "ClassName("<<name.getProperty()<<")";
+    }
 ```
 </td>
 <td>
 
 ```C++
-  
+    //Note how in this example, they use the previously defined << operator to make things simpler.
+    //Note, this is NOT inside the class. It is defined outside.
+    std::string to_string(ClassName name)
+    {
+        std::ostringstream ssl
+        ss << name;
+        return ss.str()
+    }
 ```
 </td>
 </tr>
+</table>
+
+Both of these should be descriptive and say everything necessary that someone might want to print about a class. Make sure not to add newlines or "endl" at the end as that should be left to the user implementing these functions.
+
+### Naming Conventions<a name = "naming" />
+Naming conventions are varied depending on where you look and for what language, but for the most part names just need to be clear. For our purposes, the following naming conventions can be followed:
+<table>
+<thead>
+  <tr>
+    <th></th>
+    <th>Convention</th>
+    <th>Example</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Classes</td>
+    <td>Capitalised and Mixed Case</td>
+    <td>RobotDog</td>
+  </tr>
+  <tr>
+    <td>Functions</td>
+    <td>Lowercase and mixed case, formatted as a question/command</td>
+    <td>isEqual(), getProperty()</td>
+  </tr>
+  <tr>
+    <td>Variables</td>
+    <td>Lowercase with underscores in between words. No numbers of special characters (other than underscores). <br>Should be as descriptive as possible. <br>The one exception is looping variables (such as i, x, j, etc) where the sole purpose is for a loop iterator.</td>
+    <td>maxmimum_value, robot_dog</td>
+  </tr>
+  <tr>
+    <td>Constants</td>
+    <td>All capital letters with underscores</td>
+    <td>PI, TOTAL_VALUE</td>
+  </tr>
+  <tr>
+    <td>File names</td>
+    <td>lowercase and Mixed Case</td>
+    <td>helperFile.py</td>
+  </tr>
+</tbody>
 </table>
 
 ## GitHub Standards<a name = "github_practices" />
