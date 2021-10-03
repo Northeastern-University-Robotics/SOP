@@ -18,7 +18,10 @@ Hello World
 Hello World
 
 ## Setting Up GitHub Desktop (Recomended)<a name="desktop-install"/>
-This is how to set up and use GitHub to 
+This is how to set up and use GitHub on desktop (available for all operating systems).
+
+Here is what the standard GitHub desktop application looks like:
+![GitHub Desktop](images/github desktop.png)
 
 ## Coding Standards<a name = "coding_practices" />
 Since this code will be shared between members, rewritten, and moderated by team leaders. All code that is pushed is expected to follow each guideline presented. Code that does not will not be merged into the main branch.
