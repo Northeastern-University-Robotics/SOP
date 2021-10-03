@@ -21,7 +21,8 @@ Hello World
 This is how to set up and use GitHub on desktop (available for all operating systems).
 
 Here is what the standard GitHub desktop application looks like:
-![GitHub Desktop](images/github desktop.png)
+
+![GitHub Desktop](https://github.com/Northeastern-Robotics/SOP/blob/main/images/github%20desktop.png?raw=true)
 
 ## Coding Standards<a name = "coding_practices" />
 Since this code will be shared between members, rewritten, and moderated by team leaders. All code that is pushed is expected to follow each guideline presented. Code that does not will not be merged into the main branch.
