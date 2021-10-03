@@ -5,6 +5,8 @@ This file will outline all of the requirements each collaborator should follow i
 1. [Principle of GitHub and Standard Workflow](#workflow)
 2. [Setting Up Git (Command Line)](#cmd_install)
 3. [Setting up GitHub Desktop](#desktop-install)
+    1. [Cloning a repository](#desktop-cloning)
+    2. [Commiting/Pushing/Merging](#desktop-pushing)
 4. [Code Standards](#coding_practices)
     1. [Comments](#comments)
     2. [Classes](#classes)
@@ -12,10 +14,26 @@ This file will outline all of the requirements each collaborator should follow i
 5. [GitHub Standards](#github_practices)
 
 ## Principle of GitHub and Standard Workflow<a name = "workflow"/>
-Hello World
+GitHub is one of (if not the) most popular code sharing platform in the world. It allows sharing and collaboration of code in an extremely easy way. For the Robotics club, this will allow multiple people to work on code at once which will make it extremely easy to develop in parallel.
+
+The standard workflow for GitHub can be seen below:
+1. Clone repository
+2. Pull/Fetch repository
+3. Make changes
+4. Commit changes
+5. Push changes
+6. Merge changes
+
+The first step is cloning a repository. This is simply GitHubs way of downloading code from a repository and making it so git (command line interface) or GitHub Desktop (Desktop interface) can track changes.
+
+The second step, Pull/Fetch, is to make sure your local repository is up to date with the latest code. Using Pull will download all the changes and merge them with your local directory. Fetch will download changes without changing local files. For the most part, you will only need to Pull.
+
+The next step is making changes. This is the actual coding! Note, you should always be Pulling and keeping your local repository as up to date as possible. Since you will likely not be working on the same files as other people, this should not be a problem. Always back up your local changes to be safe.
+
+Commiting, pushing, and merging are the steps in order to get your local code into the latest distribution.
 
 ## Setting Up Git (Command Line)<a name="cmd_install"/>
-Hello World
+To be done.... :)
 
 ## Setting Up GitHub Desktop (Recomended)<a name="desktop-install"/>
 This is how to set up and use GitHub on desktop (available for all operating systems).
@@ -23,6 +41,22 @@ This is how to set up and use GitHub on desktop (available for all operating sys
 Here is what the standard GitHub desktop application looks like:
 
 ![GitHub Desktop](https://github.com/Northeastern-Robotics/SOP/blob/main/images/github%20desktop.png?raw=true)
+
+### Cloning a repository<a name="desktop-cloning"/>
+In order to clone a repository, and edit files in the first place, you can go File->Clone Repository. If you have already cloned it using the command line, you can add it. Or you can choose a repository in your account/one you have access to. Also, on GitHub's website, there are multiple options to clone, and one of them is through the Desktop application.
+
+After cloning, you are all set up to begin editing!
+
+### Commiting/Pushing/Merging<a name="desktop-pushing"/>
+There are permissions set up in the repository that do not allow you to push to origin. Thus, you must make a branch (Name is First-Last name). To do so, click the "Current Branch" at the top, and choose your branch. Or, make a new branch.
+
+Once you are on your branch, the warning in the bottom left (seen in the screenshot above) should go away. You can see your changes on the left. Make sure to only check what is necessary before commiting. The checkboxes can be seen before each changed file on the left side of the application. In the example shown above, I created a file called test.txt, therefore it shows up as green and the changes to the file are seen in the window on the right.
+
+Note: before doing this, you should make sure to Pull (Repository->Pull or Fetch origin)  to make sure all code is up to date before pushing. 
+
+Once all of your files are selected, type a name and description (click [here](#github_practices) for the rules) and click the "Commit to <branch Name>" button on the bottom left. This will commit your changes to the branch.
+    
+Lastly, in order to push to your branch, push the button labeled "Push to origin" (in the screenshot it is labeled as "Fetch origin" but after commiting it will change). Lastly, in the middle of the window, a blue button will appear that is labeled "Create Pull Request." This will take you to a browser to once again fill in a name and description. After clicking the green button, "Create Pull Request," your code will be ready for an admin to look at, approve, and merge to the main branch for everyone to use.
 
 ## Coding Standards<a name = "coding_practices" />
 Since this code will be shared between members, rewritten, and moderated by team leaders. All code that is pushed is expected to follow each guideline presented. Code that does not will not be merged into the main branch.
@@ -260,4 +294,17 @@ Naming conventions are varied depending on where you look and for what language,
 </table>
 
 ## GitHub Standards<a name = "github_practices" />
-Hello World
+### Naming and Descriptions<a name = "github_names" />
+When commiting code and putting in pull requests, these are the naming and description standards you should follow.
+
+The name, although auto-filled, should be changed to describe exactly what task you are doing. Such as if you changed RobotLeg.py, you should say "Edited Leg Functionality."
+    
+The description is where you should go in depth about exactly what was changed. Nearly every change should be explained so that the admin that will review your code has a general idea of what is going on. It should also be noted if there are parts missing or some special circuimstances that would make merging difficult.
+    
+### Pushing code<a name = "pushing code" />
+By default, code cannot be pushed to the main branch. A branch should be made with your first and last name that will be the branch you exclusively use. (ex: Bob-Smith).
+    
+Code that is being pushed should also follow all conventions as described inside this document. Even if something is not explicitly said here, code should be as neat and organized as possible. Code should also be complete. Files with unimplemented features should be avoided. Since it may sometimes be necessary to share code that is not yet fully implmented, it should be made clear in the code (through comments and raising errors) that that section is not fully implemented. 
+    
+All pushed code will be reviewed by admin so it is up to their judgment if the code fits the criteria. Note, admin should hold all code to high standards and there should be no exceptions. 
+ 
