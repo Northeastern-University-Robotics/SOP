@@ -4,6 +4,8 @@ This file will outline all of the requirements each collaborator should follow i
 ## Table of contents
 1. [Principle of GitHub and Standard Workflow](#workflow)
 2. [Setting Up Git (Command Line)](#cmd_install)
+    1. [Cloning a repository](#git-cloning)
+    2. [Commiting/Pushing/Merging](#git-pushing)
 3. [Setting up GitHub Desktop (Recommended)](#desktop-install)
     1. [Cloning a repository](#desktop-cloning)
     2. [Commiting/Pushing/Merging](#desktop-pushing)
@@ -11,9 +13,11 @@ This file will outline all of the requirements each collaborator should follow i
     1. [Comments](#comments)
     2. [Classes](#classes)
     3. [Naming Conventions](#naming)
+    4. [Using Constants](#constants)
 5. [GitHub Standards](#github_practices)
-    1. [Naming and Descriptions](#github-naming)
-    2. [Pushing Code](github_pushing)
+    1. [Creating and Resolving Issues](#issues)
+    2. [Naming and Descriptions](#github-naming)
+    3. [Pushing Code](github_pushing)
 
 ## Principle of GitHub and Standard Workflow<a name = "workflow"/>
 GitHub is one of (if not the) most popular code sharing platform in the world. It allows sharing and collaboration of code in an extremely easy way. For the Robotics club, this will allow multiple people to work on code at once which will make it extremely easy to develop in parallel.
@@ -35,7 +39,49 @@ The next step is making changes. This is the actual coding! Note, you should alw
 Commiting, pushing, and merging are the steps in order to get your local code into the latest distribution.
 
 ## Setting Up Git (Command Line)<a name="cmd_install"/>
-To be done.... :)
+**_NOTE:_** Use either Git or Github Desktop, you do **NOT** need both.
+This section is assuming you already have git installed and registered with your credentials. If you have not already, [heres a tutorial.](https://docs.github.com/en/get-started/quickstart/set-up-git)
+
+For a full reference, [click here.](https://git-scm.com/docs)
+
+**Note: You need to be in the repository's local directory for these to work.**
+First, to create and edit on your branch, type the following:
+```
+git checkout -b FirstName-LastName
+```
+To then switch to that branch, a similar command is used:
+```
+git checkout FirstName-LastName
+```
+
+### Cloning a repository<a name="git-cloning"/>
+In order to clone a repository, there are many options. For one (and most likely the easiest), you can get the link to the repository. After "cd"-ing into the desired directory, type
+```
+git clone https://....  <-replace with your link
+```
+There are also other options such as downloading and adding, or using SSH, but that should be sufficient. For more information on the other options click [here](https://git-scm.com/docs/git-clone)
+
+### Commiting/Pushing/Merging<a name="git-pushing"/>
+In order to the commit, push, and merge the process is slightly more complex than on desktop. First thing to do is to add the changes. Instead of the checkbox interface on desktop, you need to add them in a different way. To add all the files use the following command
+```
+git add .
+```
+To read more about git add, read [here.](https://git-scm.com/docs/git-add)
+
+After the files are added, you can then commit the changes
+```
+git commit -am "Title" -m "Description"
+```
+To read more, read [here.](https://git-scm.com/docs/git-commit)
+
+To then push type the following command:
+```
+git push origin FirstName-LastName
+```
+To read more, read [here.](https://git-scm.com/docs/git-push)
+
+Lastly, to make a pull request. Use the following tutorial as a guide. This will require a browser and GitHub login on browser, but it does not matter what computer you are on since it is all online and changes were commited.
+[**Click here**](https://yangsu.github.io/pull-request-tutorial/#:~:text=pull-request-demo-,Creating%20a%20Pull%20Request,-To%20create%20a)
 
 ## Setting Up GitHub Desktop (Recomended)<a name="desktop-install"/>
 This is how to set up and use GitHub on desktop (available for all operating systems).
@@ -83,6 +129,7 @@ For more in depth and language specific examples, click for the full [Python](ht
 
 ### Comments for classes and functions
 Here is an example of a well commented function. All functions in pushed code should look like this and follow very similar if not exact formatting. 
+
 <table style='table-layout:fixed'>
 <tr>
 <th>Python</th>
@@ -126,6 +173,7 @@ def my_function(p1, p2, p3):
 </table>
 
 For classes, the structure is similar. Please follow these guidlines when coding classes.
+
 <table style='table-layout:fixed'>
 <tr>
 <th>Python</th>
@@ -258,7 +306,8 @@ Both of these should be descriptive and say everything necessary that someone mi
 
 ### Naming Conventions<a name = "naming" />
 Naming conventions are varied depending on where you look and for what language, but for the most part names just need to be clear. For our purposes, the following naming conventions can be followed:
-<table>
+
+<table style='table-layout:fixed'>
 <thead>
   <tr>
     <th></th>
@@ -294,9 +343,92 @@ Naming conventions are varied depending on where you look and for what language,
   </tr>
 </tbody>
 </table>
+    
+    
+### Using Constants<a name = "constants" />
+It is an inevitavility that physical constants will play a role in the creation of a lot of physical project. But, this is no excuse to litter files with constants. The issue arises where a constant needs to be changed and it cannot be located. This is why all constants should follow a few basic rules. First, they should all be in caps, and they should also be located in a separate file. Extremely descript names are needed as well as comments explaining **__exactly__** what they do and what file they are used in are required. Each module that uses constants should share one constants file. If a module has both C++ and python code, it acceptable to use two separate files.
+
+For python, constants should be located in a file with the name "\<module\>\_constants.py"
+Here is an example of a constants file for Python and C++
+
+<table style='table-layout:fixed'>
+<tr>
+<th>TestModule_constants.py</th>
+<th>TestModule_constants.h</th>
+</tr>
+<tr>
+<td>
+
+```python
+PI = 3.14 #This is used in file math.py and is the value of the mathematical symbol "pi"
+GRAVITATIONAL_ACCELERATION = 9.8 #This is used in physics.py and is the constant for acceleration due to gravity on earth. 
+                                 #Use multiple lines and be sure to describe exactly what it is doing
+```
+</td>
+<td>
+
+```C++
+#ifndef TEST_MODULE_CONSTANTS_H //Use this so symbols are not defined multiple times
+#define TEST_MODULE_CONSTANTS_H
+
+const double PI = 3.14; //This is used in file math.cpp and is the value of the mathematical symbol "pi"
+const double GRAVITATIONAL_ACCELERATION = 9.8 //This is used in physics.cpp and is the constant for acceleration due to gravity on earth. 
+                                              //Use multiple lines and be sure to describe exactly what it is doing'
+
+#endif
+```
+</td>
+</tr>
+</table>
+
+Then, here is how to use it. (Assuming constants file is in the same directory as the file you are working in)
+
+<table style='table-layout:fixed'>
+<tr>
+<th>otherFile.py</th>
+<th>otherFile.cpp</th>
+</tr>
+<tr>
+<td>
+
+```python
+import TestModule_constants.py as constants
+
+#Other code here....
+    
+x = 2 * constants.PI * radius
+    
+#Continue code
+```
+</td>
+<td>
+
+```C++
+#include "Test_Module.h"
+
+ //Other code
+    
+    x = 2 * PI * radius;
+
+//Continue code
+```
+</td>
+</tr>
+</table>
+
 
 ## GitHub Standards<a name = "github_practices" />
-### Naming and Descriptions<a name = "github_names" />
+These are the basic standards that everyone on GitHub is expected to follow. If they are not followed by both admin and members, they risk losing access to the GitHub.
+
+###Creating and Resolving Issues<a name = "issues" />
+It may come to the point where there will be issues in the code that need resolving. In this case, it is always acceptable (and encouraged) to use the Issues feature in GitHub. In order to create an Issue (which is essentially a bug report), after going to the repository on Github.com, you can click the "Issues" tab at the top and then create a new issue and describe it. 
+    
+Then, in pull requests you can link it to an issue if that particular request is what is being solved.
+    
+For a tutorial on creating issues: [Click here.](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue)
+For a tutorial on linking a pull request to an issue [Click here.](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)
+    
+### Naming and Descriptions<a name = "github-naming" />
 When commiting code and putting in pull requests, these are the naming and description standards you should follow.
 
 The name, although auto-filled, should be changed to describe exactly what task you are doing. Such as if you changed RobotLeg.py, you should say "Edited Leg Functionality."
@@ -308,5 +440,7 @@ By default, code cannot be pushed to the main branch. A branch should be made wi
     
 Code that is being pushed should also follow all conventions as described inside this document. Even if something is not explicitly said here, code should be as neat and organized as possible. Code should also be complete. Files with unimplemented features should be avoided. Since it may sometimes be necessary to share code that is not yet fully implmented, it should be made clear in the code (through comments and raising errors) that that section is not fully implemented. 
     
-All pushed code will be reviewed by admin so it is up to their judgment if the code fits the criteria. Note, admin should hold all code to high standards and there should be no exceptions. 
+All pushed code will be reviewed by admin so it is up to their judgment if the code fits the criteria. Note, admin should hold all code to high standards and there should be no exceptions.
+    
+For Admins: Read [this for expectations](http://gist.github.com/mikepea/863f63d6e37281e329f8)
  
