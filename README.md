@@ -420,7 +420,7 @@ x = 2 * constants.PI * radius
 ## GitHub Standards<a name = "github_practices" />
 These are the basic standards that everyone on GitHub is expected to follow. If they are not followed by both admin and members, they risk losing access to the GitHub.
 
-###Creating and Resolving Issues<a name = "issues" />
+### Creating and Resolving Issues<a name = "issues" />
 It may come to the point where there will be issues in the code that need resolving. In this case, it is always acceptable (and encouraged) to use the Issues feature in GitHub. In order to create an Issue (which is essentially a bug report), after going to the repository on Github.com, you can click the "Issues" tab at the top and then create a new issue and describe it. 
     
 Then, in pull requests you can link it to an issue if that particular request is what is being solved.
