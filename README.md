@@ -38,6 +38,8 @@ The next step is making changes. This is the actual coding! Note, you should alw
 
 Commiting, pushing, and merging are the steps in order to get your local code into the latest distribution.
 
+Here is a [great video](https://www.youtube.com/watch?v=HkdAHXoRtos&ab_channel=Fireship) that explains quickly the most important features of git using VSCode
+
 ## Setting Up Git (Command Line)<a name="cmd_install"/>
 **_NOTE:_** Use either Git or Github Desktop, you do **NOT** need both.
 This section is assuming you already have git installed and registered with your credentials. If you have not already, [heres a tutorial.](https://docs.github.com/en/get-started/quickstart/set-up-git)
